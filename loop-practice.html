@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop Practice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            padding: 20px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: 1px solid #0056b3;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #output {
+            background-color: #f9f9f9;
+            border: 1px solid #dddddd;
+            padding: 10px;
+            margin-top: 15px;
+            width: 320px;
+            line-height: 1.6;
+            font-size: 14px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="runLoop()">Run Code</button>
+    <div id="output">กดปุ่ม Run Code เพื่อเริ่มทำงาน</div>
+
+    <script>
+        function runLoop() {
+
+            let maxNumber = 10; 
+            
+            let resultHTML = "";
+
+            for (let i = 0; i <= maxNumber; i++) {
+                let type = (i % 2 === 0) ? "(คู่)" : "(คี่)";
+                let text = `${i} ${type}`;
+                
+                resultHTML += text + "<br>";
+                console.log(text);
+            }
+
+            for (let i = 0; i <= maxNumber; i += 2) {
+                let text = `นับทีละ 2: ${i}`;
+                resultHTML += text + "<br>";
+                console.log(text);
+            }
+
+            for (let i = 10; i >= 0; i--) {
+                let text = `ถอยหลัง: ${i}`;
+                resultHTML += text + "<br>";
+                console.log(text);
+            }
+
+            document.getElementById("output").innerHTML = resultHTML;
+        }
+    </script>
+
+</body>
+</html>

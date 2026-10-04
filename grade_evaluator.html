@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>การตรวจสอบเกรด</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            padding: 20px;
+        }
+        h2 {
+            color: #333333;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: 1px solid #0056b3;
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #outputBox {
+            background-color: #f9f9f9;
+            border: 1px solid #dddddd;
+            padding: 10px;
+            margin-top: 15px;
+            width: 300px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>การตรวจสอบเกรด</h2>
+    <button onclick="checkGrade()">Run Code</button>
+    <div id="outputBox">กดปุ่ม Run Code เพื่อเริ่มทำงาน</div>
+
+    <script>
+        function checkGrade() {
+            // 2. สุ่มคะแนน 0 - 100
+            let score = Math.floor(Math.random() * 101); 
+
+            let grade = "";
+            let result = "";
+            let description = "";
+
+            // 2. ตัดเกรดด้วย if / else if / else
+            if (score >= 80) {
+                grade = "A";
+            } else if (score >= 70) {
+                grade = "B";
+            } else if (score >= 60) {
+                grade = "C";
+            } else if (score >= 50) {
+                grade = "D";
+            } else {
+                grade = "F";
+            }
+
+            // ตรวจสอบ ผลสอบ (ผ่าน / ไม่ผ่าน)
+            if (score >= 50) {
+                result = "ผ่าน";
+            } else {
+                result = "ไม่ผ่าน";
+            }
+
+            switch (grade) {
+                case "A":
+                    description = "ยอดเยี่ยมมาก";
+                    break;
+                case "B":
+                    description = "ดีมาก รักษามาตรฐานไว้";
+                    break;
+                case "C":
+                    description = "ผ่านเกณฑ์ระดับดี";
+                    break;
+                case "D":
+                    description = "พอใช้ แต่ควรพัฒนาเพิ่ม";
+                    break;
+                case "F":
+                    description = "ต้องลงทะเบียนเรียนใหม่";
+                    break;
+                default:
+                    description = "ไม่สามารถระบุได้";
+            }
+
+            // 5. แสดงผลใน Console
+            console.log("คะแนน:", score);
+            console.log("เกรด:", grade);
+            console.log("ผลสอบ:", result);
+            console.log("คำอธิบาย:", description);
+
+            
+            let output = document.getElementById("outputBox");
+            output.innerHTML = `
+                คะแนนที่สุ่มได้: ${score} <br>
+                เกรด: ${grade} <br>
+                ผลสอบ: ${result} <br>
+                คำอธิบาย: ${description}
+            `;
+        }
+    </script>
+
+</body>
+</html>
